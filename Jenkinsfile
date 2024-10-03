@@ -17,5 +17,17 @@
             git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/joisyousef/java-k8s-cicd'
         }
       }
+
+      stage('Build Stage'){
+        steps{
+            sh 'mvn clean package'
+        }
+      }
+
+      stage('Test Stage'){
+        steps{
+            sh 'mvn test'
+        }
     }
   }
+}
