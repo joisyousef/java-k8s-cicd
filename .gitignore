@@ -13,7 +13,7 @@
 
 # **Maven Build Artifacts**
 # The 'target' directory contains all the build outputs and should be ignored.
-target/
+target/   
 
 # **IDE Specific Files**
 # IntelliJ IDEA
@@ -51,4 +51,3 @@ ehthumbs.db
 # **Other Temporary Files**
 *.tmp
 *.swp
-  
