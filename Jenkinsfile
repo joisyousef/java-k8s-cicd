@@ -12,14 +12,9 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Configure Git') {
-            steps {
-                sh 'git config --global http.postBuffer 524288000'
-            }
-        }
         stage('Checkout from SCM') {
             steps {
-                git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd', timeout: 300
+                git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd.git'
             }
         }
         stage('Build Stage') {
@@ -34,7 +29,7 @@ pipeline {
         }
         stage('Sonarqube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv(credentialsId: 'jenkins-sonar-token') {
                     sh 'mvn sonar:sonar'
                 }
             }
