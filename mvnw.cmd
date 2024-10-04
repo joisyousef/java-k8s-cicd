@@ -152,7 +152,7 @@ if exist %WRAPPER_JAR% (
         echo Finished downloading %WRAPPER_JAR%
     )
 )
-@REM End of extension
+@REM End of extensions
 
 @REM Provide a "standardized" way to retrieve the CLI args that will
 @REM work with both Windows and non-Windows executions.
@@ -186,3 +186,5 @@ if "%MAVEN_BATCH_PAUSE%"=="on" pause
 if "%MAVEN_TERMINATE_CMD%"=="on" exit %ERROR_CODE%
 
 cmd /C exit /B %ERROR_CODE%
+
+
