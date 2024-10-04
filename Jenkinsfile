@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Checkout from SCM') {
             steps {
-                git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd'
+                git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd', timeout: 300
             }
         }
         stage('Build Stage') {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Sonarqube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') { // Replace 'SonarQube' with your actual installation name
+                withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
             }
