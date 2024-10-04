@@ -21,23 +21,20 @@ pipeline {
       steps {
         git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd'
       }
-    } // <- This closing brace was missing
-
+    }
     stage('Build Stage') {
       steps {
         sh 'mvn clean package'
       }
-    } // <- This closing brace was missing
-
+    }
     stage('Test Stage') {
       steps {
         sh 'mvn test'
       }
     }
-
     stage('Sonarqube Analysis') {
       steps {
-        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
+        withSonarQubeEnv(credentialsID:'jenkins-sonarqube-token') { // Replace 'SonarQube' with your actual installation name
           sh 'mvn sonar:sonar'
         }
       }
