@@ -1,45 +1,46 @@
-pipeline{
-  agent{
-      label "jenkins-agent"
+pipeline {
+  agent {
+    label "jenkins-agent"
   }
-  tools{
+  tools {
     jdk 'Java21'
     maven 'Maven3'
   }
-  stages{
-    stage('Cleanup Workspace'){
-      steps{
-          cleanWs()
+  stages {
+    stage('Cleanup Workspace') {
+      steps {
+        cleanWs()
       }
     }
     stage('Configure Git') {
-          steps {
-              sh 'git config --global http.postBuffer 524288000'
-          }
+      steps {
+        sh 'git config --global http.postBuffer 524288000'
       }
-    stage('Checkout from SCM'){
-      steps{
-          git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd'
+    }
+    stage('Checkout from SCM') {
+      steps {
+        git branch: 'main', credentialsId: 'Github-Token', url: 'https://github.com/joisyousef/java-k8s-cicd'
       }
+    } // <- This closing brace was missing
 
-    stage('Build Stage'){
-      steps{
-          sh 'mvn clean package'
+    stage('Build Stage') {
+      steps {
+        sh 'mvn clean package'
       }
+    } // <- This closing brace was missing
 
-    stage('Test Stage'){
-      steps{
-          sh 'mvn test'
+    stage('Test Stage') {
+      steps {
+        sh 'mvn test'
       }
-  }stage('Sonarqube Analysis'){
-      steps{
-          withSonarQubeEnv(credentialsID:'jenkins-sonarqube-token') { 
+    }
 
+    stage('Sonarqube Analysis') {
+      steps {
+        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
           sh 'mvn sonar:sonar'
-          }   
+        }
       }
-  }   
-}
-}
-}
+    }
+  }
 }
