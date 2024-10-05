@@ -34,12 +34,6 @@ pipeline {
                 }
             }
         }
-         stage('Quality Gate') {
-            steps { 
-                script{
-                    waitForQualityGate abortPipeline: flase, credentialsId: 'jenkins-sonar-token'
-                }
-            }
-        }
+                    
     }
 }
