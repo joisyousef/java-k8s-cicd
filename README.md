@@ -1,5 +1,3 @@
-Here's a sample `README.md` file that highlights your project and the CI/CD pipeline you've created:
-
 ---
 
 # Java Kubernetes CI/CD Pipeline
