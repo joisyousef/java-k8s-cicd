@@ -4,21 +4,6 @@
 
 This repository demonstrates a complete CI/CD pipeline for a Java application using Jenkins, Docker, SonarQube, and Trivy. The application is built with Maven, analyzed for code quality, containerized with Docker, scanned for vulnerabilities, and deployed to a Kubernetes environment.
 
-## Table of Contents
-
-- [Java Kubernetes CI/CD Pipeline](#java-kubernetes-cicd-pipeline)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-  - [Technologies Used](#technologies-used)
-  - [Pipeline Stages](#pipeline-stages)
-  - [Setup Instructions](#setup-instructions)
-    - [Prerequisites](#prerequisites)
-    - [Jenkins Setup](#jenkins-setup)
-    - [Docker Setup](#docker-setup)
-    - [SonarQube Setup](#sonarqube-setup)
-    - [Trivy Setup](#trivy-setup)
-  - [Usage](#usage)
-
 ## Project Overview
 
 This project demonstrates an automated CI/CD pipeline to build, test, analyze, and deploy a Java application using modern DevOps practices. The pipeline is designed to be run on Jenkins and uses Docker for containerization, SonarQube for code quality analysis, and Trivy for vulnerability scanning.
@@ -39,7 +24,6 @@ The primary features of this project include:
 - **SonarQube**: For static code analysis and enforcing code quality gates.
 - **Trivy**: For container image vulnerability scanning.
 - **Git**: Version control system.
-- **Kubernetes**: For deploying the application in a containerized environment.
 
 ## Pipeline Stages
 
@@ -97,14 +81,3 @@ The primary features of this project include:
 
 - Ensure Trivy is installed on the Jenkins server.
 - The Trivy scan is integrated into the pipeline to scan the Docker images for vulnerabilities.
-
-## Usage
-
-        - To trigger the pipeline, commit changes to the `main` branch or trigger a manual build in Jenkins.
-        - The pipeline will automatically execute all stages, from building the application to scanning the Docker image.
-
-        ## Contributing
-
-        If you'd like to contribute, please fork the repository and create a pull request. Issues and feature requests are welcome!
-
----
